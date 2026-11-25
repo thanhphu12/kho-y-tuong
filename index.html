@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kho ý tưởng đồ án</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Kho ý tưởng đồ án</h1>
+      <p class="sub">Cả nhóm thêm ý tưởng, vote, rồi chốt đề phù hợp nhất.</p>
+    </header>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Tìm ý tưởng..." />
+      <select id="filterStatus">
+        <option value="">Mọi trạng thái</option>
+      </select>
+      <select id="sortBy">
+        <option value="votes">Nhiều vote nhất</option>
+        <option value="newest">Mới nhất</option>
+        <option value="easy">Dễ nhất</option>
+        <option value="hard">Khó nhất</option>
+      </select>
+      <button id="toggleForm" class="btn primary">+ Thêm ý tưởng</button>
+      <button id="copySheet" class="btn">Copy bảng (Sheet)</button>
+    </div>
+
+    <form id="ideaForm" class="card form" autocomplete="off">
+      <div class="grid2">
+        <label>Tên ý tưởng
+          <input name="title" required maxlength="200" placeholder="VD: Web quản lý quán cafe đa chi nhánh" />
+        </label>
+        <label>Người đề xuất
+          <input name="author" required maxlength="60" placeholder="Tên bạn" />
+        </label>
+      </div>
+      <label>Mô tả
+        <textarea name="description" rows="5" maxlength="3000" placeholder="Làm gì, cho ai, điểm đặc biệt..."></textarea>
+      </label>
+      <div class="grid2">
+        <label>Công nghệ / hướng làm
+          <input name="tech" maxlength="200" placeholder="VD: Next.js, PostgreSQL, AI agent" />
+        </label>
+        <label>Độ khó (1 dễ – 5 khó)
+          <select name="difficulty">
+            <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions">
+        <button type="submit" class="btn primary">Lưu</button>
+        <button type="button" id="cancelForm" class="btn">Huỷ</button>
+      </div>
+    </form>
+
+    <section id="list"></section>
+
+    <footer class="foot">Dữ liệu lưu chung cho cả nhóm. Mỗi người vote 1 lần cho mỗi ý tưởng.
+      <p id="modeBadge" class="badge-mode"></p>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
